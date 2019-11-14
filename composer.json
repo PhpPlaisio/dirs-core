@@ -1,8 +1,8 @@
 {
   "name": "plaisio/dirs-core",
-  "description": "Plaisio: Core Directories",
+  "description": "PhpPlaisio: Core Directories",
   "keywords": [
-    "Plaisio",
+    "PhpPlaisio",
     "Core",
     "Directories"
   ],
