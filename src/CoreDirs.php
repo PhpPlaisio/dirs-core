@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace Plaisio\Dirs;
 
+use SetBased\Exception\LogicException;
+
 /**
  * Abstract parent class for all pages.
  */
@@ -24,7 +26,13 @@ class CoreDirs implements Dirs
    */
   public function __construct(string $root)
   {
-    $this->root = realpath($root);
+    $realpath = realpath($root);
+    if (!is_string($realpath))
+    {
+      throw new LogicException("Unable to resolve root path '%s'", $root);
+    }
+
+    $this->root = $realpath;
   }
 
   //--------------------------------------------------------------------------------------------------------------------

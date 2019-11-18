@@ -21,6 +21,7 @@ class CoreDirsTest extends TestCase
   private $dirs;
 
   //--------------------------------------------------------------------------------------------------------------------
+
   /**
    * Tests config dir.
    */
@@ -66,6 +67,16 @@ class CoreDirsTest extends TestCase
     self::assertStringNotContainsString('..', $dir);
     self::assertStringNotContainsString('/./', $dir);
     self::assertEquals($this->dirs->varDir().'/err', $dir);
+  }
+
+  //--------------------------------------------------------------------------------------------------------------------
+  /**
+   * Test illegal root directory.
+   */
+  public function testIllegalRoot(): void
+  {
+    $this->expectException(\LogicException::class);
+    new CoreDirs(__DIR__.'..');
   }
 
   //--------------------------------------------------------------------------------------------------------------------
