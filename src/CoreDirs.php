@@ -16,7 +16,7 @@ class CoreDirs implements Dirs
    *
    * @var string
    */
-  private $root;
+  private string $root;
 
   //--------------------------------------------------------------------------------------------------------------------
   /**
